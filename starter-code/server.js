@@ -24,6 +24,9 @@ app.get('/', function(request, response ){
 });
 
 // TODO: (STRETCH) Write a new route that will handle a request and send the new.html file back to the user
+app.get('/new', function(request, response){
+  response.sendFile('/new.html', {root: './public'} )
+});
 
 
 app.post('/articles', bodyParser, function(request, response) {
