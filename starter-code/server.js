@@ -1,4 +1,5 @@
 'use strict';
+console.log('I am in node')
 
 // DONE----TODO: Initialize your project using NPM to create and populate a package.json file
 
@@ -9,7 +10,18 @@
 const bodyParser = require('body-parser').urlencoded({extended: true});
 const PORT = process.env.PORT || 3000;
 
-// TODO: Include all of the static resources as an argument to app.use()
+// DONE----TODO: Include all of the static resources as an argument to app.use()
+
+const express = require('express');
+const app = express();
+
+app.use( express.static( './public' ));
+
+app.get('/', function(request, response ){
+  response.sendFile('/index.html', {root: './public'} )
+  // response.sendFile('' )
+
+});
 
 // TODO: (STRETCH) Write a new route that will handle a request and send the new.html file back to the user
 
@@ -24,4 +36,5 @@ app.post('/articles', bodyParser, function(request, response) {
 
 app.listen(PORT, function() {
   // TODO: Log to the console a message that lets you know which port your server has started on
+  console.log(`You are on ${PORT}`)
 });
