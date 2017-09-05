@@ -14,10 +14,10 @@ const bodyParser = require('body-parser').urlencoded({extended: true});
 const PORT = process.env.PORT || 3000;
 
 // DONE TODO: Include all of the static resources as an argument to app.use()
-app.use( express.static('.public') );
+app.use( express.static('./public') );
 
 app.get( '/', function( request,response ){
-  response.sendFile( './public/index.html', { root: '/.public' } ); //specify .public in url?
+  response.sendFile( 'index.html', { root: './public' } );  //specify .public in url?
 });
 
 // TODO: (STRETCH) Write a new route that will handle a request and send the new.html file back to the user
